@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:recipe_app/categories/data/repositories/categories_repository.dart';
+import 'package:recipe_app/categories/presentation/pages/categories_view.dart';
+import 'package:recipe_app/categories/presentation/pages/categories_view_model.dart';
 import 'package:recipe_app/core/client.dart';
-import 'package:recipe_app/onboarding/data/repositories/onboarding_repository.dart';
-import 'package:recipe_app/onboarding/presentation/pages/onboarding_view.dart';
-import 'package:recipe_app/onboarding/presentation/pages/onboarding_view_model.dart';
-import 'package:recipe_app/profile/data/repositories/profile_repository.dart';
-import 'package:recipe_app/profile/presentation/pages/profile_view.dart';
-import 'package:recipe_app/profile/presentation/pages/profile_view_model.dart';
 
 void main() => runApp(RecipeApp());
 
@@ -22,7 +19,7 @@ class RecipeApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: ProfileView(viewModel: ProfileViewModel(repo: ProfileRepository(client: ApiClient()))),
+      home: CategoriesView(vm: CategoriesViewModel(repo: CategoriesRepository(client: ApiClient()))),
     );
   }
 }
