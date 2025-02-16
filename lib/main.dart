@@ -12,12 +12,16 @@ GoRouter router = GoRouter(
   routes: [],
 );
 
+final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
+
 class RecipeApp extends StatelessWidget {
   const RecipeApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(
+      ),
       debugShowCheckedModeBanner: false,
       home: CategoriesView(vm: CategoriesViewModel(repo: CategoriesRepository(client: ApiClient()))),
     );
